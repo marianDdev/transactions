@@ -2,7 +2,6 @@
 
 namespace Tests\Services;
 
-use App\Contracts\TransactionsInterface;
 use App\Repositories\Transactions\DbTransactionsRepository;
 use App\Services\TransactionsService;
 use Illuminate\Support\Collection;
@@ -16,8 +15,8 @@ class TransactionsServiceTest extends TestCase
 
         $transactions = new  Collection([]);
         $dbRepositoryMock->expects($this->once())
-            ->method('getTransactions')
-            ->willReturn($transactions);
+                         ->method('getTransactions')
+                         ->willReturn($transactions);
 
         $transactionsService = new TransactionsService($dbRepositoryMock);
 

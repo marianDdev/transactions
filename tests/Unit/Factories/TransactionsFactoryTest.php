@@ -11,25 +11,25 @@ class TransactionsFactoryTest extends TestCase
 {
     public function testGetCsvTransactionHandler()
     {
-        $sourceType = "csv";
+        $sourceType                = "csv";
         $csvTransactionsRepository = new CsvTransactionsRepository();
-        $transactionFactory = new TransactionsFactory($sourceType);
+        $transactionFactory        = new TransactionsFactory($sourceType);
 
         return $this->assertEquals($csvTransactionsRepository, $transactionFactory->getTransactionsHandler());
     }
 
     public function testGetDbTransactionHandler()
     {
-        $sourceType = "db";
+        $sourceType               = "db";
         $dbTransactionsRepository = new DbTransactionsRepository();
-        $transactionFactory = new TransactionsFactory($sourceType);
+        $transactionFactory       = new TransactionsFactory($sourceType);
 
         return $this->assertEquals($dbTransactionsRepository, $transactionFactory->getTransactionsHandler());
     }
 
     public function testcannotGetTransactionHandler()
     {
-        $sourceType = "aaa";
+        $sourceType         = "aaa";
         $transactionFactory = new TransactionsFactory($sourceType);
 
         return $this->assertEquals(null, $transactionFactory->getTransactionsHandler());
