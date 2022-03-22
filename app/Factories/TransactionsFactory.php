@@ -21,15 +21,17 @@ class TransactionsFactory
     }
 
     /**
-     * @return TransactionsInterface
+     * @return TransactionsInterface|null
      */
-    public function getTransactionsHandler(): TransactionsInterface
+    public function getTransactionsHandler(): ?TransactionsInterface
     {
         if ($this->sourceType === "csv") {
             return new CsvTransactionsRepository();
         } elseif ($this->sourceType === "db") {
             return new DbTransactionsRepository();
         }
+
+        return null;
     }
 
 }
